@@ -111,8 +111,38 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  const arrayOfRomanNumerals = [
+    'I',
+    'II',
+    'III',
+    'IV',
+    'V',
+    'VI',
+    'VII',
+    'VIII',
+    'IX',
+    'X',
+  ];
+  if (num > 0 && num <= 10) {
+    return arrayOfRomanNumerals[num - 1];
+  }
+  if (num > 10 && num <= 20) {
+    return arrayOfRomanNumerals[9] + arrayOfRomanNumerals[(num % 10) - 1];
+  }
+  if (num > 20 && num < 30) {
+    return (
+      arrayOfRomanNumerals[9] +
+      arrayOfRomanNumerals[9] +
+      arrayOfRomanNumerals[(num % 10) - 1]
+    );
+  }
+  return (
+    arrayOfRomanNumerals[9] +
+    arrayOfRomanNumerals[9] +
+    arrayOfRomanNumerals[9] +
+    arrayOfRomanNumerals[(num % 10) - 1]
+  );
 }
 
 /**
@@ -132,6 +162,20 @@ function convertToRomanNumerals(/* num */) {
  */
 function convertNumberToString(/* numberStr */) {
   throw new Error('Not implemented');
+  /*   const alphabet = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'point',
+    'minus',
+  ]; */
 }
 
 /**
@@ -146,8 +190,13 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -164,8 +213,13 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
